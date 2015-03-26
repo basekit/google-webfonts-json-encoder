@@ -1,0 +1,24 @@
+---
+fonts:
+    latin:
+        subset: 'latin'
+        fonts:
+            - family: 'Droid+Sans'
+              size: '400,700'
+            - family: 'Arvo'
+              size: '400,700'
+            - family: 'Corben'
+              size: '400,700'
+    cyrillic:
+        subset: 'cyrillic'
+        fonts:
+            - family: 'Droid+Sans'
+              size: '400,700'
+            - family: 'Arvo'
+              size: '400,700'
+            - family: 'Corben'
+              size: '400,700'
+            - family: 'Lobster'
+              size: ''
+            - family: 'Droid+Serif'
+              size: ''

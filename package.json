@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/basekit/google-webfonts-json-encoder",
   "dependencies": {
+    "yamljs": "^0.2.1",
     "yargs": "^3.6.0"
   },
   "devDependencies": {

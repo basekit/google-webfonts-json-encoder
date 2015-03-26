@@ -1,8 +1,8 @@
-'use strict';
-
-const assert = require('assert');
-
 describe('argsValidator', function () {
+    'use strict';
+
+    const assert = require('assert');
+
     describe('validate', function () {
         const validate = require('../../lib/argsValidator').validate,
             config = require('../../config.js');
