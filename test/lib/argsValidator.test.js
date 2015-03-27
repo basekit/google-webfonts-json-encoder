@@ -9,13 +9,10 @@ describe('argsValidator', function () {
 
         it('returns true  if all options are valid', function () {
             const options = {
-                _: [ 'open' ],
                 s: 'latin,latin-ext',
                 subset: 'latin,latin-ext',
                 f: 'woff,woff2,ttf',
                 format: 'woff,woff2,ttf',
-                v: 'regular',
-                variant: 'regular',
                 l: 'config/google_fonts.yml',
                 list: 'config/google_fonts.yml',
                 d: '/Users/eddy/code/google-webfonts-json-encoder',
@@ -28,13 +25,10 @@ describe('argsValidator', function () {
 
         it('returns false if any option is invalid', function () {
             const options = {
-                _: [ 'open' ],
                 s: 'latin,latin-ext,potato',
                 subset: 'latin,latin-ext,potato',
                 f: 'woff,woff2,ttf',
                 format: 'woff,woff2,ttf',
-                v: 'regular',
-                variant: 'regular',
                 l: 'config/google_fonts.yml',
                 list: 'config/google_fonts.yml',
                 d: '/Users/eddy/code/google-webfonts-json-encoder',

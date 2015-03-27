@@ -2,46 +2,17 @@
 
 'use strict';
 const config = require('./config'),
-      validate = require('./lib/argsValidator').validate;
+    commandParser = require('./lib/commandParser'),
+    fontListLoader = require('./lib/fontListLoader'),
+    cmdOpt2ReqOptConverter = require('./lib/cmdOpt2ReqOptConverter'),
+    fontRequester = require('./lib/fontRequester');
 
-var argv = require('yargs')
-    .usage('Usage: $0 [options] <family name>')
-    .option('s', {
-        alias: 'subset',
-        demand: false,
-        default: config.subset.default,
-        describe: 'specify subset to download',
-        type: 'string'
-    })
-    .option('f', {
-        alias: 'format',
-        demand: false,
-        default: config.format.default,
-        describe: 'specify font format: ttf,woff,...',
-        type: 'string'
-    })
-    .option('v', {
-        alias: 'variant',
-        demand: false,
-        default: config.variant.default,
-        describe: 'specify variants to download: regular,300,400,...',
-        type: 'string'
-    })
-    .option('l', {
-        alias: 'list',
-        demand: false,
-        default: config.list.default,
-        describe: 'path to YAML with font list',
-        type: 'string'
-    })
-    .option('d', {
-        alias: 'dest',
-        demand: false,
-        default: __dirname,
-        describe: 'path to destination folder',
-        type: 'string'
-    })
-    .demand(1)
-    .argv;
+var options = commandParser.parse(config),
+    fontList = fontListLoader.loadList(options.list),
+    reqOptions = cmdOpt2ReqOptConverter.convert({
+        format: options.format,
+        fonts: fontList,
+        subset: options.subset
+    });
 
-validate(argv, config);
+fontRequester.download(reqOptions);
