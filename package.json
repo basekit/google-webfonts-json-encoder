@@ -4,13 +4,13 @@
   "description": "\"Given a list of available google font subsets and families, download the specified family, subset and variants, in several formats, encoding them as json\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd test/lib;mocha ."
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/basekit/google-webfonts-json-encoder.git"
   },
-  "author": "\"Eddy Josafat\"",
+  "author": "\"Eddy Josafat Hernandez Vega\"",
   "license": "CC BY 4.0",
   "bugs": {
     "url": "https://github.com/basekit/google-webfonts-json-encoder/issues"
