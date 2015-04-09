@@ -25,7 +25,7 @@ describe('cmdOpt2ReqOptConverter', function () {
                 ]
             },
             'latin-ext': {
-                subset: 'latin-ext',
+                subset: 'latin,latin-ext',
                 fonts: [
                     {
                         family: 'Droid+Sans',

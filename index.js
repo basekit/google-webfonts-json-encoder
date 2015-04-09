@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
+
 const config = require('./config'),
     commandParser = require('./lib/commandParser'),
     fontListLoader = require('./lib/fontListLoader'),
@@ -10,6 +11,7 @@ const config = require('./config'),
 var options = commandParser.parse(config),
     fontList = fontListLoader.loadList(options.list),
     reqOptions = cmdOpt2ReqOptConverter.convert({
+        dest: options.dest,
         format: options.format,
         fonts: fontList,
         subset: options.subset
