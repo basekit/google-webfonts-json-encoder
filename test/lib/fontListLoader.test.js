@@ -12,7 +12,7 @@ describe('fontListLoader', function () {
                 fonts: [
                     {
                         family: 'Droid+Sans',
-                        id: 'droid_sans',
+                        id: 'droid-sans',
                         size: '400,700'
                     },
                     {
@@ -32,7 +32,7 @@ describe('fontListLoader', function () {
                 fonts: [
                     {
                         family: 'Droid+Sans',
-                        id: 'droid_sans',
+                        id: 'droid-sans',
                         size: '400,700'
                     },
                     {
@@ -52,7 +52,7 @@ describe('fontListLoader', function () {
                     },
                     {
                         family: 'Droid+Serif',
-                        id: 'droid_serif',
+                        id: 'droid-serif',
                         size: ''
                     }
                 ]

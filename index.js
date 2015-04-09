@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
+
 const config = require('./config'),
     commandParser = require('./lib/commandParser'),
     fontListLoader = require('./lib/fontListLoader'),
