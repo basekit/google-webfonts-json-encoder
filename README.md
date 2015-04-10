@@ -7,7 +7,9 @@ This tool is intended to be used in the build process of BaseKit app, but can be
 
 Installation: `npm install google-webfonts-json-encoder`
 
-Usage: `node gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext -f=woff,woff2`
+Usage: `node --harmony gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext -f=woff,woff2`
+
+The minimun version of node needed to run it is 0.12.
 
 Where -l is the path of a yml file listing the desired fonts (legacy format used in the app),
 -d is the folder to store the fonts, and -s the desired subsets of fonts.
