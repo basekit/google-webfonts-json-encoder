@@ -25,8 +25,11 @@ The complete list of command line options are:
 
 * f: fonts format to download, defaults to woff,woff2,ttf.
 
+You can set your own defaults in config.js.
+
 ## YAML font list
-This is an example of our format, if you use another one, just adapt it to your own.
+This is an example of our format, if you use another one, just adapt it to your own, specifying its name in config.js (fontListFormat
+option) and creating a loader and a parser with that name, ended in Loader and Parser respectively.
 
 ---
 

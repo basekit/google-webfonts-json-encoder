@@ -4,8 +4,8 @@ describe('argsValidator', function () {
     const assert = require('assert');
 
     describe('validate', function () {
-        const validate = require('../../lib/argsValidator').validate,
-            config = require('../../config.js');
+        const validate = require('../../lib/argsValidator').validate;
+        const config = require('../../config.js');
 
         it('returns true  if all options are valid', function () {
             const options = {

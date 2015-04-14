@@ -1,20 +1,12 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
 'use strict';
 
-const config = require('./config'),
-    commandParser = require('./lib/commandParser'),
-    fontListLoader = require('./lib/fontListLoader'),
-    cmdOpt2ReqOptConverter = require('./lib/cmdOpt2ReqOptConverter'),
-    fontRequester = require('./lib/fontRequester');
-
-var options = commandParser.parse(config),
-    fontList = fontListLoader.loadList(options.list),
-    reqOptions = cmdOpt2ReqOptConverter.convert({
-        dest: options.dest,
-        format: options.format,
-        fonts: fontList,
-        subset: options.subset
-    });
+const config = require('./config');
+const commandParser = require('./lib/commandParser');
+const cmdOpt2ReqOptConverter = require('./lib/cmdOpt2ReqOptConverter');
+const fontRequester = require('./lib/fontRequester');
+const options = commandParser.parse(config);
+const reqOptions = cmdOpt2ReqOptConverter.convert(options, config);
 
 fontRequester.download(reqOptions);

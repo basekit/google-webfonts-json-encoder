@@ -20,6 +20,7 @@ module.exports = {
     },
     list: {
         default: 'config/google_fonts.yml'
-    }
+    },
+    fontListFormat: 'bkYaml'
 };
 
