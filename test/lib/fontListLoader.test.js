@@ -1,31 +1,31 @@
-// describe('fontListLoader', function () {
-//     'use strict';
+describe('fontListLoader', function () {
+    'use strict';
 
-//     const fontListLoader = require('../../lib/fontListLoader');
+    const fontListLoader = require('../../lib/fontListLoader');
 
-//     describe('load', function () {
-//        it('uses the appropiate loader depending on a config option', function () {
-//            const mockery = require('mockery');
-//            const sinon = require('sinon');
-//            const path = 'dummy/path';
-//            const config = {
-//                fontListFormat: 'bkYaml'
-//            };
-//            let fakeLoader = {
-//                load: function () {}
-//            };
-//            let bkYamlLoader = sinon.mock(fakeLoader);
+    describe('load', function () {
+       it('uses the appropiate loader depending on a config option', function () {
+           const mockery = require('mockery');
+           const sinon = require('sinon');
+           const assert = require('assert');
+           const path = 'dummy/path';
+           const config = {
+               fontListFormat: 'bkYaml'
+           };
+           let fakeLoader = {
+               load: sinon.spy()
+           };
 
-//            mockery.enable();
-//            mockery.registerMock('./bkYamlLoader', bkYamlLoader);
+           mockery.enable({
+               warnOnUnregistered: false
+           });
+           mockery.registerMock('./bkYamlLoader', fakeLoader);
 
-//            bkYamlLoader.expects('load').once().withArgs(path);
+           fontListLoader.load(path, config);
 
-//            fontListLoader.load(path, config);
+           assert(fakeLoader.load.withArgs(path).calledOnce);
 
-//            bkYamlLoader.verify();
-
-//            mockery.disable();
-//        });
-//     });
-// });
+           mockery.disable();
+       });
+    });
+});

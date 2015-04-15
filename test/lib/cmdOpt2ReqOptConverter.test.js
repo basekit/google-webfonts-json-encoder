@@ -1,104 +1,119 @@
-// Disabled until figuring out how the hell use mockery and sinon with this stuff
-// describe('cmdOpt2ReqOptConverter', function () {
-//     'use strict';
+describe('cmdOpt2ReqOptConverter', function () {
+    'use strict';
 
-//     const assert = require('assert');
-//     const convert = require('../../lib/cmdOpt2ReqOptConverter').convert;
-//     const options = {
-//         subset: 'latin,latin-ext',
-//         format: 'woff,woff2,ttf',
-//         dest: 'my_folder'
-//     };
-//     const config = {
-//         fontListFormat: 'bkYaml'
-//     };
-//     const fontList = {
-//         latin: {
-//             subset: 'latin',
-//             fonts: [
-//                 {
-//                     family: 'Droid+Sans',
-//                     id: 'droid_sans',
-//                     size: '400,700'
-//                 },
-//                 {
-//                     family: 'Arvo',
-//                     id: 'arvo',
-//                     size: '400,700'
-//                 }
-//             ]
-//         },
-//         'latin-ext': {
-//             subset: 'latin,latin-ext',
-//             fonts: [
-//                 {
-//                     family: 'Droid+Sans',
-//                     id: 'droid_sans',
-//                     size: '400,700'
-//                 },
-//                 {
-//                     family: 'Sans',
-//                     id: 'sans',
-//                     size: '400,700'
-//                 }
-//             ]
-//         },
-//         cyrillic: {
-//             subset: 'cyrillic',
-//             fonts: [
-//                 {
-//                     family: 'Droid+Sans',
-//                     id: 'droid_sans',
-//                     size: '400,700'
-//                 },
-//                 {
-//                     family: 'arvo',
-//                     id: 'arvo',
-//                     size: '400,700'
-//                 }
-//             ]
-//         }
-//     };
+    const assert = require('assert');
+    const mockery = require('mockery');
+    const sinon = require('sinon');
+    const convert = require('../../lib/cmdOpt2ReqOptConverter').convert;
+    const options = {
+        subset: 'latin,latin-ext',
+        format: 'woff,woff2,ttf',
+        dest: 'my_folder'
+    };
+    const config = {
+        fontListFormat: 'bkYaml'
+    };
+    const fontList = {
+        latin: {
+            subset: 'latin',
+            fonts: [
+                {
+                    family: 'Droid+Sans',
+                    id: 'droid_sans',
+                    size: '400,700'
+                },
+                {
+                    family: 'Arvo',
+                    id: 'arvo',
+                    size: '400,700'
+                }
+            ]
+        },
+        'latin-ext': {
+            subset: 'latin,latin-ext',
+            fonts: [
+                {
+                    family: 'Droid+Sans',
+                    id: 'droid_sans',
+                    size: '400,700'
+                },
+                {
+                    family: 'Sans',
+                    id: 'sans',
+                    size: '400,700'
+                }
+            ]
+        },
+        cyrillic: {
+            subset: 'cyrillic',
+            fonts: [
+                {
+                    family: 'Droid+Sans',
+                    id: 'droid_sans',
+                    size: '400,700'
+                },
+                {
+                    family: 'arvo',
+                    id: 'arvo',
+                    size: '400,700'
+                }
+            ]
+        }
+    };
 
-//     describe('convert', function () {
-//         let loaderStub;
+    describe('convert', function () {
+        beforeEach(function () {
+           let fakeLoader = {
+               load: sinon.stub().returns(fontList)
+           };
 
-//         it('sets download param', function () {
-//             const reqOptions = convert(options, config);
+           mockery.enable({
+               warnOnUnregistered: false
+           });
 
-//             assert.equal(reqOptions.download, 'zip');
-//         });
+           mockery.registerMock('./bkYamlLoader', fakeLoader);
+        });
 
-//         it('sets formats param', function () {
-//             const reqOptions = convert(options, config);
+        afterEach(function () {
+            mockery.disable();
+        });
 
-//             assert.equal(reqOptions.formats, options.format);
-//         });
+        it('sets download param', function () {
+            const reqOptions = convert(options, config);
 
-//         it('sets destination folder param', function () {
-//             const reqOptions = convert(options, config);
+            assert.equal(reqOptions.download, 'zip');
+        });
 
-//             assert.equal(reqOptions.dest, options.dest);
-//         });
+        it('sets formats param', function () {
+            const reqOptions = convert(options, config);
 
-//         it('sets a list of fonts, subsets and variants, identified by id, to download', function () {
-//             const reqOptions = convert(options, config);
-//             const expected = {
-//                 'droid_sans': {
-//                     subsets: 'latin,latin-ext',
-//                     variants: 'regular,400,700'
-//                 },
-//                 'arvo': {
-//                     subsets: 'latin',
-//                     variants: 'regular,400,700'
-//                 },
-//                 'sans': {
-//                     subsets: 'latin-ext',
-//                     variants: 'regular,400,700'
-//                 }
-//             };
+            assert.equal(reqOptions.formats, options.format);
+        });
 
-//             assert.deepEqual(reqOptions.fonts, expected);
-//         });
-//     });
-// });
+        it('sets destination folder param', function () {
+            const reqOptions = convert(options, config);
+
+            assert.equal(reqOptions.dest, options.dest);
+        });
+
+        it('sets a list of fonts, subsets and variants, identified by id, to download', function () {
+            const reqOptions = convert(options, config);
+            const expected = {
+                'droid_sans': {
+                    subsets: 'latin,latin-ext',
+                    variants: 'regular,400,700'
+                },
+                'arvo': {
+                    subsets: 'latin',
+                    variants: 'regular,400,700'
+                },
+                'sans': {
+                    subsets: 'latin-ext',
+                    variants: 'regular,400,700'
+                }
+            };
+
+            assert.deepEqual(reqOptions.fonts, expected);
+        });
+    });
+});
