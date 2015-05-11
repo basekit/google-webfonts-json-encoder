@@ -7,11 +7,15 @@ describe('cmdOpt2ReqOptConverter', function () {
     const convert = require('../../lib/cmdOpt2ReqOptConverter').convert;
     const options = {
         subset: 'latin,latin-ext',
-        format: 'woff,woff2,ttf',
         dest: 'my_folder'
     };
     const config = {
-        fontListFormat: 'bkYaml'
+        fontListFormat: 'bkYaml',
+        fontAPI: {
+            endpoint: 'https://www.googleapis.com/webfonts/v1/webfonts',
+            keyParam: 'key',
+            keyEnv: 'GOOGLE_API_KEY'
+        }
     };
     const fontList = {
         latin: {
@@ -84,12 +88,6 @@ describe('cmdOpt2ReqOptConverter', function () {
             assert.equal(reqOptions.download, 'zip');
         });
 
-        it('sets formats param', function () {
-            const reqOptions = convert(options, config);
-
-            assert.equal(reqOptions.formats, options.format);
-        });
-
         it('sets destination folder param', function () {
             const reqOptions = convert(options, config);
 
@@ -114,6 +112,12 @@ describe('cmdOpt2ReqOptConverter', function () {
             };
 
             assert.deepEqual(reqOptions.fonts, expected);
+        });
+
+        it('pass through the font API params', function () {
+            const reqOptions = convert(options, config);
+
+            assert.deepEqual(reqOptions.fontAPI, config.fontAPI);
         });
     });
 });

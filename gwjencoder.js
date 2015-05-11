@@ -10,3 +10,4 @@ const options = commandParser.parse(config);
 const reqOptions = cmdOpt2ReqOptConverter.convert(options, config);
 
 fontRequester.download(reqOptions);
+

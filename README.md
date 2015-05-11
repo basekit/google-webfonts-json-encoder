@@ -1,7 +1,7 @@
 # google-webfonts-json-encoder
 
-Download and encode, as base64 json, google fonts, downloaded from [google-webfonts-helper service](https://github.com/majodev/google-webfonts-helper).
-This tool is intended to be used in the build process of BaseKit app, but can be easily adapted to use in any other project).
+Download and encode google fonts as base64 json (ttf and woff).
+This tool is intended to be used in the build process of BaseKit app, but can be easily adapted to use in any other project.
 
 ## Quick guide 
 
@@ -9,7 +9,7 @@ Installation: `npm install -g google-webfonts-json-encoder`
 
 Note: You can install it locally to your project as well. Remember to add the path to run it.
 
-Usage: `gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext -f=woff,woff2`
+Usage: `gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext`
 
 The minimun version of node needed to run it is 0.12.
 
@@ -24,8 +24,6 @@ The complete list of command line options are:
 * l: path to the yml file, defaults to config/google_fonts.yml.
 
 * d: target folder, defaults to current one.
-
-* f: fonts format to download, defaults to woff,woff2,ttf.
 
 You can set your own defaults in config.js.
 
@@ -72,7 +70,7 @@ Use it at your own risk.
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ## Acknowledge
-Thanks to [Mario Ranftl](https://github.com/majodev) for his useful service.
+Thanks to [Mario Ranftl](https://github.com/majodev) for his font downloading service, used in the early versions of this tool.
 
 
 

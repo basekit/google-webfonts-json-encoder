@@ -12,7 +12,7 @@ describe('bkYamlLoader', function () {
             fonts: [
             {
                 family: 'Droid+Sans',
-                id: 'droid-sans',
+                id: 'droid_sans',
                 size: '400,700'
             },
             {
@@ -32,7 +32,7 @@ describe('bkYamlLoader', function () {
             fonts: [
             {
                 family: 'Droid+Sans',
-                id: 'droid-sans',
+                id: 'droid_sans',
                 size: '400,700'
             },
             {
@@ -52,7 +52,7 @@ describe('bkYamlLoader', function () {
                 },
                     {
                         family: 'Droid+Serif',
-                        id: 'droid-serif',
+                        id: 'droid_serif',
                         size: ''
                     }
             ]

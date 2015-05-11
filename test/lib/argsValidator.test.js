@@ -11,8 +11,6 @@ describe('argsValidator', function () {
             const options = {
                 s: 'latin,latin-ext',
                 subset: 'latin,latin-ext',
-                f: 'woff,woff2,ttf',
-                format: 'woff,woff2,ttf',
                 l: 'config/google_fonts.yml',
                 list: 'config/google_fonts.yml',
                 d: '/Users/eddy/code/google-webfonts-json-encoder',
@@ -27,8 +25,6 @@ describe('argsValidator', function () {
             const options = {
                 s: 'latin,latin-ext,potato',
                 subset: 'latin,latin-ext,potato',
-                f: 'woff,woff2,ttf',
-                format: 'woff,woff2,ttf',
                 l: 'config/google_fonts.yml',
                 list: 'config/google_fonts.yml',
                 d: '/Users/eddy/code/google-webfonts-json-encoder',

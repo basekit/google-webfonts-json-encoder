@@ -1,14 +1,6 @@
 'use strict';
 
 module.exports = {
-    format: {
-        available: [
-            'woff',
-            'woff2',
-            'ttf'
-        ],
-        default: 'woff,woff2,ttf'
-    },
     subset: {
         available: [
             'latin',
@@ -21,6 +13,11 @@ module.exports = {
     list: {
         default: 'config/google_fonts.yml'
     },
-    fontListFormat: 'bkYaml'
+    fontListFormat: 'bkYaml',
+    fontAPI: {
+        endpoint: 'https://www.googleapis.com/webfonts/v1/webfonts',
+        keyParam: 'key',
+        keyEnv: 'GOOGLE_API_KEY'
+    }
 };
 
