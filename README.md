@@ -9,7 +9,9 @@ Installation: `npm install -g google-webfonts-json-encoder`
 
 Note: You can install it locally to your project as well. Remember to add the path to run it.
 
-Usage: `gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext`
+You need a Google API key to use the tool, and set an environment variable named GOOGLE_API_KEY with its value.
+
+Usage: `GOOGLE_API_KEY=your_key_here gwjencoder -l config/google_fonts.yml -d assets/public/fonts -s=latin,latin-ext`
 
 The minimun version of node needed to run it is 0.12.
 
