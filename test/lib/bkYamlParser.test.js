@@ -61,15 +61,15 @@ describe('bkYaml', function () {
             const expected = {
                 'droid_sans': {
                     subsets: 'latin,latin-ext',
-                    variants: 'regular,400,700'
+                    variants: 'regular,700'
                 },
                 'arvo': {
                     subsets: 'latin',
-                    variants: 'regular,400,700'
+                    variants: 'regular,700'
                 },
                 'sans': {
                     subsets: 'latin-ext',
-                    variants: 'regular,400,700'
+                    variants: 'regular,700'
                 }
             };
 
