@@ -9,14 +9,9 @@ describe('bkYaml', function () {
             subset: 'latin',
             fonts: [
                 {
-                    family: 'Droid+Sans',
-                    id: 'droid_sans',
-                    size: '400,700'
-                },
-                {
                     family: 'Arvo',
                     id: 'arvo',
-                    size: '400,700'
+                    size: '300,700'
                 }
             ]
         },
@@ -26,7 +21,7 @@ describe('bkYaml', function () {
                 {
                     family: 'Droid+Sans',
                     id: 'droid_sans',
-                    size: '400,700'
+                    size: ''
                 },
                 {
                     family: 'Sans',
@@ -60,12 +55,12 @@ describe('bkYaml', function () {
             });
             const expected = {
                 'droid_sans': {
-                    subsets: 'latin,latin-ext',
-                    variants: 'regular,700'
+                    subsets: 'latin-ext',
+                    variants: 'regular'
                 },
                 'arvo': {
                     subsets: 'latin',
-                    variants: 'regular,700'
+                    variants: '300,700'
                 },
                 'sans': {
                     subsets: 'latin-ext',
