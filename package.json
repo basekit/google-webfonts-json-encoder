@@ -1,10 +1,10 @@
 {
   "name": "google-webfonts-json-encoder",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "\"Given a list of available google font subsets and families, download the specified family, subset and variants, in several formats, encoding them as json\"",
   "main": "index.js",
   "scripts": {
-    "test": "cd test/lib;mocha ."
+    "test": "cd test/lib;mocha --harmony ."
   },
   "repository": {
     "type": "git",
