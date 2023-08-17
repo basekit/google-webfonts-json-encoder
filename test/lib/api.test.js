@@ -7,13 +7,13 @@ describe('api', function () {
 
     describe('requestList', function () {
         it('returns an error if no Google API Key is passed as a param', function (done) {
-            const request = function () {};
+            const fetch = function () {};
 
             mockery.enable({
                 warnOnUnregistered: false
             });
 
-            mockery.registerMock('request', request);
+            mockery.registerMock('node-fetch', fetch);
             const requestList = require('../../lib/api').requestList;
             const apiParams = {
                 endpoint: 'http://www.example.com',
@@ -21,11 +21,10 @@ describe('api', function () {
                 keyEnv: 'this_test_GOOGLE_API_KEY'
             };
 
-            requestList(apiParams).catch((err) => {
-                assert.equal(err.message, 'No Google API key found');
-                mockery.disable();
-                done();
-            });
+            assert.throws(() => requestList(apiParams), /No Google API key found/);
+
+            mockery.disable();
+            done();
         });
     });
 });

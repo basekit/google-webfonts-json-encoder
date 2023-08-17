@@ -1,6 +1,6 @@
 {
   "name": "google-webfonts-json-encoder",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "\"Given a list of available google font subsets and families, download the specified family, subset and variants, in several formats, encoding them as json\"",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/basekit/google-webfonts-json-encoder",
   "dependencies": {
     "async": "^0.9.0",
-    "request": "^2.55.0",
+    "node-fetch": "^3.3.2",
     "ttf2woff": "^2.0.1",
     "yamljs": "^0.2.1",
     "yargs": "^3.6.0"
